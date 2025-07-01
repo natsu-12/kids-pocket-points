@@ -19,7 +19,7 @@ function PointControl({
             <option value="おもちゃ、ゲーム">おもちゃ、ゲーム</option>
         </select>
         <select 
-            className="points" 
+            className="points forms" 
             value={selectedNum}
             onChange={(e) => setSelectedNum(Number(e.target.value))}
         >
@@ -30,8 +30,10 @@ function PointControl({
             <option value="50">50</option>
             <option value="100">100</option>
         </select>
-        <button onClick={handleAddPoint}>追加！</button>
-        <button onClick={handleDeletePoint}>使う！</button>
+        <div className='buttons'>
+        <button onClick={handleAddPoint} className='addButton'>ポイントを追加！</button>
+        <button onClick={handleDeletePoint} className='useButton'>ポイントを使う！</button>
+        </div>
     </div>
   )
 }

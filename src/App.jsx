@@ -86,36 +86,51 @@ useEffect(() => {
   const now = new Date();
   const today = now.getDate();
   const yearMonth = `${now.getFullYear()}-${now.getMonth() + 1}`;
+
+  // 月末なら、その月のポイントを保存
   const isMonthEnd = today === new Date(
-  now.getFullYear(),now.getMonth() + 1,0).getDate();
-    if(isMonthEnd){
-      localStorage.setItem(`monthlyPoint-${yearMonth}`,point);
-    }
+    now.getFullYear(), now.getMonth() + 1, 0
+  ).getDate();
+
+  if (isMonthEnd) {
+    localStorage.setItem(`monthlyPoint-${yearMonth}`, point);
+  }
+
+  // 月初なら、今月のアラートを出していない場合のみ実行
   const isMonthStart = today === 1;
-  if(isMonthStart){
+  const alertKey = `alertShown-${yearMonth}`;
+  const alreadyAlerted = localStorage.getItem(alertKey);
+
+  if (isMonthStart && !alreadyAlerted) {
     let total = 0;
-    for(let i = 1;i <= 12;i++){
+    for (let i = 1; i <= 12; i++) {
       const key = `monthlyPoint-${now.getFullYear()}-${i}`;
       const saved = localStorage.getItem(key);
-      if(saved){
+      if (saved) {
         total += Number(saved);
       }
     }
-    alert(`現在の累計ポイントは${total}ptです!`);
+
+    alert(`今月の始まり！貯まったポイントは${total}ptです!`);
     setTotalNum(total);
+    localStorage.setItem(alertKey, 'true'); // アラート出した記録
   }
-},[ point ])
+}, [point]);
 
 return (
   <div>
-    <h1>お小遣い管理アプリ</h1>
-    <h2>現在のポイント：{point} pt</h2>
-    <p>
+    <div className="rogo">
+    <img src="/images/背景なしポイントピッグ.png" alt="" className="pointPig" />
+    <h1 className="alignCenter">Kids Pocket Points</h1>
+    </div>
+    <div className="pointHolder holderFont">
+    <h2 className="alignCenter">現在のポイント：{point} pt</h2>
+    <p className="alignCenter">
       {goal.point - point > 0
       ? `目標「${goal.name}」まで、あと${goal.point - point}pt"`
       : `やったね！ついに${goal.name}が買えるよ！`}
     </p>
-    
+    </div>
     <PointControl 
       selectedNum={selectedNum}
       setSelectedNum={setSelectedNum}
@@ -126,7 +141,7 @@ return (
       />
 
     <div>
-    <button onClick={() => setShowHistory(!showHistory)}>
+    <button onClick={() => setShowHistory(!showHistory)} className="historyButton">
       {showHistory ? "履歴を隠す" : "履歴を見る"}
     </button>
     {showHistory && <HistoryList history={history} />}
@@ -139,7 +154,9 @@ return (
   setInputNum={setInputNum}
   handleNewGoal={handleNewGoal}
 />
-    <p>これまでの累計ポイント：{totalNum} pt</p>
+    <h2 className="alignCenter">
+      これまでの累計ポイント：{totalNum} pt
+      </h2>
   </div>
 )
 }

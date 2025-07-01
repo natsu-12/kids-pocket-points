@@ -1,6 +1,8 @@
+
+
 body {
-  font-family: sans-serif;
-  background-color: #629dd8;
+  font-family: "UoqMunThenKhung" sans-serif;
+  background-color: #e9e1bd;
   padding: 20px;
 }
 
@@ -15,9 +17,8 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 60px;
+  font-size: 80px;
   color: #f3f2f9;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
   border:#ffffff;
   border-radius: 8px;
 
@@ -28,29 +29,23 @@ h2 {
   font-size: 50px;
   color: #333;
 }
+/*-- ボタン　--*/
 
 button {
   align-items: center;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-color: #f29b65;
+  border: 3px solid #642802;
+  border-radius: 25px;
   box-sizing: border-box;
   color: #ffffff;
   display: flex;
-  font-size: 18px;
+  font-size: 30px;
   justify-content: center;
   line-height: 1em;
   max-width: 100%;
   min-width: 140px;
-  padding: 5px;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.3s;
+  padding: 10px 20px;
+ 
 }
 
 button:active,
@@ -74,8 +69,20 @@ button:hover span {
 button:active {
   transform: scale(0.9);
 }
-
-
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.addButton {
+  background-color: #d47911
+}
+.useButton {
+  background-color: #c1f577;
+  color: #642802;
+}
+/*-- 履歴リスト　--*/
 ul {
   list-style: none;
   padding: 0;
@@ -96,4 +103,54 @@ li.use {
   padding: 16px;
   margin: 20px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ロゴとタイトル */
+.alignCenter {
+  text-align: center;
+  font-size: 40px;
+  color: #6e3c16;
+  margin: 20px 0;
+
+  font-family: "UoqMunThenKhung", sans-serif;
+  font-weight: normal;
+}
+.rogo {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  border: 1px solid #642802;
+  border-radius: 16px; 
+  padding: 20px;
+  background-color: #e2ad7b;
+}
+.pointPig {
+  width: 50%;
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto; 
+}
+
+select {
+  font-size: 30px;
+  font: "UoqMunThenKhung", sans-serif;
+  font-weight: normal;
+  padding: 10px;
+  border-radius: 16px;
+  border: 3px solid #6e3c16;
+  color: #fff;
+  background-color: #b28f66;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap:10px;
+  margin-top: 10px;
+}
+.historyButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
 }
