@@ -6,7 +6,7 @@ function PointControl({
     handleAddPoint,handleDeletePoint
 }) {
   return (
-    <div> 
+    <div className='alignCenter'> 
         <select
             className="reasons"
             value={selectedReason}

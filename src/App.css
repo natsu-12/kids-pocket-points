@@ -82,6 +82,17 @@ button:active {
   background-color: #c1f577;
   color: #642802;
 }
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap:10px;
+  margin-top: 10px;
+}
+.historyButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
 /*-- 履歴リスト　--*/
 ul {
   list-style: none;
@@ -142,15 +153,4 @@ select {
   border: 3px solid #6e3c16;
   color: #fff;
   background-color: #b28f66;
-}
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  gap:10px;
-  margin-top: 10px;
-}
-.historyButton {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 20px;
 }
