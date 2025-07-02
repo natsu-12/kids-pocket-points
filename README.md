@@ -3,14 +3,15 @@
 **子どものお手伝いをポイントで管理！**  
 子どものお手伝いをポイントで管理！
 楽しく継続できる「ポイント制おこづかい管理アプリ」です。
-子供が現金を持ち歩かなくても、出先でポイントを換金して、ほしいものが買える。
+子供が現金を持ち歩かなくても、その場でポイントを換金して、ほしいものが買える。
 リアルタイムで増減が管理できるので便利です。
 必要分を換金して、先に渡しても○。
 
-自己学習の過程で、実際に自分で使うアプリを考えw
+自己学習の過程で、実際に自分で使うアプリを考えて制作しました。
+
 ##  デモサイト
 
-[https://your-username.github.io/kids-pocket-points/](https://your-username.github.io/kids-pocket-points/)  
+ https://natsu-12.github.io/kids-pocket-points/
 ※GitHub Pages で公開中
 
 ---
@@ -37,7 +38,7 @@
 ## 💻 ローカルでの起動方法
 
 ```bash
-git clone https://github.com/your-username/kids-pocket-points.git
+git clone https://natsu-12.github.io/kids-pocket-points/
 cd kids-pocket-points
 npm install
 npm run dev
