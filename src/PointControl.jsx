@@ -30,7 +30,7 @@ function PointControl({
             <option value="50">50</option>
             <option value="100">100</option>
         </select>
-        <div className='buttons'>
+        <div className='around'>
         <button onClick={handleAddPoint} className='addButton'>ポイントを追加！</button>
         <button onClick={handleDeletePoint} className='useButton'>ポイントを使う！</button>
         </div>

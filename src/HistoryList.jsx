@@ -3,7 +3,7 @@ import React from 'react';
 function HistoryList({ history }) {
   return (
     <div className='historyBox'>
-        <h3>ポイント履歴</h3>
+        <h3 className='alignCenter'>ポイント履歴</h3>
         <ul>
       {history.map((item,index) => (
       <li key={index} className={item.type}>
