@@ -131,7 +131,7 @@ return (
       <h1 className="alignCenter">Kids Pocket Points</h1>
     </div>
     <div className="holder alignCenter">
-    <h2 className="alignCenter">現在のポイント：{point} pt</h2>
+    <h2 className="alignCenter">ポイント：{point} pt</h2>
     <p className="alignCenter">
       {goal.point - point > 0
       ? `「${goal.name}」まで"あと${goal.point - point}pt"`
@@ -147,9 +147,9 @@ return (
       handleDeletePoint={handleDeletePoint}
       />
 
-    <div className="alignCenter">
-    <button onClick={() => setShowHistory(!showHistory)} className="alignCenter historyButton">
-      {showHistory ? "履歴を隠す" : "履歴を見る"}
+    <div className="buttons">
+    <button onClick={() => setShowHistory(!showHistory)} className="alignCenter button">
+      {showHistory ? "閉じる" : "ポイントアクティビティ"}
     </button>
     {showHistory && <HistoryList history={history} />}
     </div>
@@ -162,7 +162,7 @@ return (
   handleNewGoal={handleNewGoal}
 />
     <h2 className="alignCenter">
-      これまでの累計ポイント：{totalNum} pt
+      これまでのポイント：{totalNum} pt
       </h2>
   </div>
 )
