@@ -147,7 +147,7 @@ return (
       handleDeletePoint={handleDeletePoint}
       />
 
-    <div>
+    <div className="alignCenter">
     <button onClick={() => setShowHistory(!showHistory)} className="alignCenter historyButton">
       {showHistory ? "履歴を隠す" : "履歴を見る"}
     </button>
