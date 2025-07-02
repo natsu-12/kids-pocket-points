@@ -127,7 +127,7 @@ useEffect(() => {
 return (
   <div>
     <div className="logo">
-      <img src="/images/P.png" alt="" className="pointPig" />
+      <img src="./images/P.png" alt="" className="pointPig" />
       <h1 className="alignCenter">Kids Pocket Points</h1>
     </div>
     <div className="holder alignCenter">
