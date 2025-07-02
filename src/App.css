@@ -1,6 +1,6 @@
 body {
-  font-family: sans-serif;
-  background-color: #629dd8;
+  font-family: "UoqMunThenKhung" ,sans-serif;
+  background-color: #e9e1bd;
   padding: 20px;
 }
 
@@ -12,70 +12,55 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-h1 {
-  text-align: center;
-  font-size: 60px;
-  color: #f3f2f9;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
-  border:#ffffff;
-  border-radius: 8px;
-
-}
-
-h2 {
-  text-align: center;
-  font-size: 50px;
-  color: #333;
-}
-
+/*-- ボタン　--*/
 button {
-  align-items: right;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  align-items: center;
+  background-color: #f29b65;
+  border: 3px solid #642802;
+  border-radius: 25px;
   box-sizing: border-box;
   color: #ffffff;
   display: flex;
-  font-size: 18px;
+  font-size: 30px;
   justify-content: center;
   line-height: 1em;
   max-width: 100%;
   min-width: 140px;
-  padding: 5px;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.3s;
+  padding: 10px 20px;
+
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.addButton {
+  background-color: #d47911
+}
+.useButton {
+  background-color: #c1f577;
+  color: #642802;
 }
 
-button:active,
-button:hover {
-  outline: 0;
+.historyButton {
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 30px;
+  color: #fff;
 }
 
-button span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
+/*-- ポイントホルダー　--*/
+.holder {
+  font: #642802;
+  background-color: #fdf5e6;
+  border-radius: 16px;
+  padding: 40px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
 }
-
-button:hover span {
-  background: none;
-}
-
-button:active {
-  transform: scale(0.9);
-}
-
-
+/*-- 履歴リスト　--*/
 ul {
   list-style: none;
   padding: 0;
@@ -96,4 +81,118 @@ li.use {
   padding: 16px;
   margin: 20px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ロゴとタイトル */
+.around {
+  display: flex;
+  justify-content: space-around;
+  gap:10px;
+  margin-top: 10px;
+}
+.alignCenter {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0;
+  font-family: "UoqMunThenKhung", sans-serif;
+  font-weight: normal;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  font-size: 3rem;;
+}
+.pointPig {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+}
+
+select {
+  font-size: 30px;
+  font: "UoqMunThenKhung", sans-serif;
+  font-weight: normal;
+  padding: 10px;
+  border-radius: 16px;
+  border: 3px solid #6e3c16;
+  color: #fff;
+  background-color: #b28f66;
+}
+
+/*goalForm */
+.goalForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.goalForm h3 {
+  font-size: 2rem;
+}
+.goalInput {
+  font-size: 30px;
+  font-family: "UoqMunThenKhung", sans-serif;
+  font-weight: normal;
+  padding: 10px;
+  border-radius: 16px;
+  border: 3px solid #6e3c16;
+  color: #642802;
+  background-color: #fdf5e6;
+  margin-right: 10px;
+}
+.goalNum {
+  font-size: 30px;
+  font-family: "UoqMunThenKhung", sans-serif;
+  font-weight: normal;
+  padding: 10px;
+  border-radius: 16px;
+  border: 3px solid #6e3c16;
+  color: #642802;
+  background-color: #fdf5e6;
+  margin-right: 10px;
+}
+@media (min-width: 800px) {
+  body {
+    font-size: 5rem;
+    color: #642802;
+    font-family: "UoqMunThenKhung" ,sans-serif;
+    background-color: #e9e1bd;
+    padding: 20px;
+  }
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  .pointPig {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+  }
+  h1 {
+    font-size: 5rem;
+    line-height: 1.1;
+  }
+  .holder {
+    background-color: #fdf5e6;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    align-items: center;
+  } 
+  .alignCenter {
+    font-size: 4rem;
+  }
+  button {
+    background-color: #f9f9f9;
+    color: #642802;
+  }
 }

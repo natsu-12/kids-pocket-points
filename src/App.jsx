@@ -45,6 +45,7 @@ const handleDeletePoint = () => {
   setHistory([...history,newRecord2]);
 }
 
+// 初期データの読み込み
 useEffect(() => {
   const saved = localStorage.getItem("point");
   if(saved){
@@ -57,6 +58,7 @@ useEffect(() => {
   setLoaded(true);
 },[]);
 
+// goalの初期値をlocalStorageから取得
 useEffect(() => {
   const savedGoal = localStorage.getItem("goal");
   if(savedGoal){
@@ -64,58 +66,78 @@ useEffect(() => {
   }
 },[]);
 
+// pointの変更があったら、localStorageに保存
 useEffect(() => {
   if(loaded){
   localStorage.setItem("point",point);
   }
 },[ point,loaded ]);
 
+// 履歴の変更があったら、localStorageに保存
 useEffect(() => {
   if(loaded){
   localStorage.setItem("history",JSON.stringify(history));
   }
 },[ history ,loaded]);
 
+// goalの変更があったら、localStorageに保存
 useEffect(() => {
   if(loaded){
     localStorage.setItem("goal",JSON.stringify(goal));
   }
 },[goal,loaded]);
 
+// 月初と月末の処理
+// 月末にポイントを保存し、月初にアラートを出す
 useEffect(() => {
   const now = new Date();
   const today = now.getDate();
   const yearMonth = `${now.getFullYear()}-${now.getMonth() + 1}`;
+
+  // 月末なら、その月のポイントを保存
   const isMonthEnd = today === new Date(
-  now.getFullYear(),now.getMonth() + 1,0).getDate();
-    if(isMonthEnd){
-      localStorage.setItem(`monthlyPoint-${yearMonth}`,point);
-    }
+    now.getFullYear(), now.getMonth() + 1, 0
+  ).getDate();
+
+  if (isMonthEnd) {
+    localStorage.setItem(`monthlyPoint-${yearMonth}`, point);
+  }
+
+  // 月初なら、今月のアラートを出していない場合のみ実行
   const isMonthStart = today === 1;
-  if(isMonthStart){
+  const alertKey = `alertShown-${yearMonth}`;
+  const alreadyAlerted = localStorage.getItem(alertKey);
+
+  if (isMonthStart && !alreadyAlerted) {
     let total = 0;
-    for(let i = 1;i <= 12;i++){
+    for (let i = 1; i <= 12; i++) {
       const key = `monthlyPoint-${now.getFullYear()}-${i}`;
       const saved = localStorage.getItem(key);
-      if(saved){
+      if (saved) {
         total += Number(saved);
       }
     }
-    alert(`現在の累計ポイントは${total}ptです!`);
-    setTotalNum(total);
+
+    alert(`今月の始まり！貯まったポイントは${total}ptです!`);
+    setTotalNum(total+totalNum);
+    localStorage.setItem(alertKey, 'true'); // アラート出した記録
   }
-},[ point ])
+}, [point]);
 
 return (
   <div>
-    <h1>お小遣い管理アプリ</h1>
-    <h2>現在のポイント：{point} pt</h2>
-    <p>
+    <div className="logo">
+      <img src="/images/P.png" alt="" className="pointPig" />
+      <h1 className="alignCenter">Kids Pocket Points</h1>
+    </div>
+    <div className="holder alignCenter">
+    <h2 className="alignCenter">現在のポイント：{point} pt</h2>
+    <p className="alignCenter">
       {goal.point - point > 0
-      ? `目標「${goal.name}」まで、あと${goal.point - point}pt"`
+      ? `「${goal.name}」まで"あと${goal.point - point}pt"`
       : `やったね！ついに${goal.name}が買えるよ！`}
     </p>
-    
+    </div>
     <PointControl 
       selectedNum={selectedNum}
       setSelectedNum={setSelectedNum}
@@ -126,7 +148,7 @@ return (
       />
 
     <div>
-    <button onClick={() => setShowHistory(!showHistory)}>
+    <button onClick={() => setShowHistory(!showHistory)} className="alignCenter historyButton">
       {showHistory ? "履歴を隠す" : "履歴を見る"}
     </button>
     {showHistory && <HistoryList history={history} />}
@@ -139,7 +161,9 @@ return (
   setInputNum={setInputNum}
   handleNewGoal={handleNewGoal}
 />
-    <p>これまでの累計ポイント：{totalNum} pt</p>
+    <h2 className="alignCenter">
+      これまでの累計ポイント：{totalNum} pt
+      </h2>
   </div>
 )
 }
