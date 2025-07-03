@@ -163,7 +163,7 @@ return (
 />
     <h2 className="alignCenter">
       これまでのポイント：{totalNum} pt
-      </h2>
+    </h2>
   </div>
 )
 }
